@@ -25,9 +25,6 @@ store = {}
 
 
 
-#Request body
-class AudioFilePath(BaseModel):
-    path:str
 
 #initialize the app
 app = FastAPI()
