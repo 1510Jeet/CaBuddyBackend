@@ -2,9 +2,6 @@ from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel
 
 import os
-
-
-
 #to avoid this error: Initializing libiomp5md.dll, but found libiomp5md.dll already initialized. 
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 
@@ -28,10 +25,6 @@ store = {}
 
 #initialize the app
 app = FastAPI()
-
-
-
-
 
 # Now on to making a llama3 API
 
@@ -73,9 +66,12 @@ class sessionInfo(BaseModel):
 @app.post("/deleteChat")
 async def deleteChat(sid:sessionInfo):
     # Deleting Chat by it's session id
+    response="session id not found"
     session_id=sid.session_id
     if session_id in store:
         del store[session_id]
+        response="success"
+    return response
 
 
 
