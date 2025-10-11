@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+pydantic
+python-dotenv
+pymongo
+certifi
+langchain
+langchain-groq
+langchain-core
+langchain-mongodb
+logging
+requests
+httpx
